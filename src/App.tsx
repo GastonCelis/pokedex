@@ -1,15 +1,17 @@
+import PokeBase from "./components/pokeBase"
 import useRedux from "./hooks/useRedux"
 import { getPokemonIdorNameAsync } from "./redux/features/pokemon/pokemonThunk"
+import '@/app.scss'
 
 function App() {
   const { dispatch, selectors: { selectorPokemon } } = useRedux()
-  const { pokemonId } = selectorPokemon
+  const { dataSearch, pokemon } = selectorPokemon
+  const { pokemonId } = dataSearch
 
   return (
-    <>
-      <div>pokedex</div>
-      <button onClick={() => dispatch(getPokemonIdorNameAsync(pokemonId))}>Get pokemon</button>
-    </>
+    <div className="container">
+      <PokeBase />
+    </div>
   )
 }
 

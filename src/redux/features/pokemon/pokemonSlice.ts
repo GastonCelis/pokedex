@@ -1,12 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import Ipokemon from '@/interfaces/redux/IPokemon'
+import IPokemonSlice from '@/interfaces/redux/IPokemon'
 import { getPokemonIdorNameAsync } from './pokemonThunk'
 
-const initialState: Ipokemon = {
+const initialState: IPokemonSlice = {
     allPokemons: [],
-    pokemon: '',
-    pokemonId: 1,
+    pokemon: null,
+    dataSearch: {
+        pokemonId: 1,
+        pokemonName: '',
+    },
     pageNumber: 0,
     totalPages: 0,
     statusMessage: '',
@@ -18,23 +22,27 @@ export const pokemonSlice = createSlice({
     initialState,
     reducers: {
         refreshStatePokemon: () => initialState,
-        setPokemonId: (state: Ipokemon, action: PayloadAction<number | string>) => {
-            state.pokemonId = action.payload
+        setPokemonSearchId: (state: IPokemonSlice, action: PayloadAction<number>) => {
+            state.dataSearch.pokemonId = action.payload
+        },
+        setPokemonSearchName: (state: IPokemonSlice, action: PayloadAction<string>) => {
+            state.dataSearch.pokemonName = action.payload
         }
     },
 
     extraReducers: builder => {
         builder
-            .addCase(getPokemonIdorNameAsync.pending, (state: Ipokemon) => {
+            .addCase(getPokemonIdorNameAsync.pending, (state: IPokemonSlice) => {
                 state.statusMessage = 'pending'
                 state.loading = true
             })
-            .addCase(getPokemonIdorNameAsync.fulfilled, (state: Ipokemon, action: PayloadAction<unknown>) => {
+            .addCase(getPokemonIdorNameAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
                 state.pokemon = action.payload
+                state.dataSearch.pokemonId = action.payload.id
                 state.statusMessage = 'fulfilled'
                 state.loading = false
             })
-            .addCase(getPokemonIdorNameAsync.rejected, (state: Ipokemon) => {
+            .addCase(getPokemonIdorNameAsync.rejected, (state: IPokemonSlice) => {
                 state.statusMessage = 'rejected'
                 state.loading = false
             })
@@ -42,7 +50,7 @@ export const pokemonSlice = createSlice({
 })
 
 export const {
-    setPokemonId,
+    setPokemonSearchId,
     refreshStatePokemon
 } = pokemonSlice.actions
 

@@ -1,7 +1,11 @@
-export default interface IPokemon {
-    allPokemons: Array<unknown>
-    pokemon: unknown
-    pokemonId: number | string
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default interface IPokemonSlice {
+    allPokemons: Array<any>
+    pokemon: any
+    dataSearch: {
+        pokemonId: number
+        pokemonName: string
+    }
     pageNumber: number
     totalPages: number
     statusMessage: string
