@@ -1,0 +1,26 @@
+.circuit-bar{
+    position: absolute;
+    background-color: rgb(78, 0, 0);
+}
+
+.circuit-bar-left{
+    top: 150px;
+    left: 20px;
+    height: 73%;
+    width: 10px;
+}
+
+.circuit-bar-center{
+    top: 403px;
+    left: 220.5px;
+    height: 65%;
+    width: 10px;
+    rotate: 90deg;
+}
+
+.circuit-bar-right{
+    top: 100px;
+    right: 20px;
+    height: 81.3%;
+    width: 10px;
+}

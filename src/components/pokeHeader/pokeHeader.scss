@@ -1,3 +1,7 @@
+.header{
+    z-index: 50;
+}
+
 .container-pokeHeader{
     position: absolute;
     top: 15px;
@@ -6,12 +10,13 @@
 }
 
 .container-circle-on{
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    width: 73px;
-    height: 73px;
+    width: 85px;
+    height: 85px;
     background-color: white;
     border: 1px solid black;
     box-shadow: 5px 2px 2px rgba(0, 0, 0, 0.544);
@@ -33,11 +38,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border: 1px solid black;
-    background-color: rgb(66, 188, 254);
-    box-shadow: inset -5px -4px 1px rgb(31, 109, 151);
 }
 
 .circle-on-min-1{
@@ -58,6 +61,29 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.516);
     border: 1px solid white;
+}
+
+.circle-on-ok{
+    background-color: rgb(45, 250, 18);
+    box-shadow: 0px 0px 10px 8px rgb(45, 250, 18),
+                inset -5px -4px 1px rgb(29, 161, 12);
+}
+
+.circle-on-error{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0px 0px 10px 8px rgb(255, 0, 0),
+                inset -5px -4px 1px rgb(143, 1, 1);
+}
+
+.circle-off{
+    background-color: rgb(120, 120, 120);
+    box-shadow: inset -5px -4px 1px rgb(42, 42, 42);
+}
+
+.circle-on-search{
+    background-color: rgb(66, 188, 254);
+    box-shadow: inset -5px -4px 1px rgb(31, 109, 151);
+    animation: powerSearch 800ms ease-in-out infinite;
 }
 
 .circle-reset{
@@ -97,17 +123,62 @@
     border: 3px solid black;
     background-color: rgb(252, 1, 1);
     box-shadow: inset -5px -4px 1px rgb(143, 1, 1);
-    color: white;
 }
 
 .circle-close:hover{
-    background-color: rgb(143, 1, 1)
+    background-color: rgb(143, 1, 1);
+    color: white;
 }
 
 .circle-search:hover{
-    background-color: rgb(147, 152, 12)
+    background-color: rgb(147, 152, 12);
+    color: white;
 }
 
 .circle-reset:hover{
     background-color: rgb(29, 161, 12);
+    color: white;
+}
+
+.bar-bottom{
+    width: 35%;
+    height: 20px;
+    background-color: rgb(78, 0, 0);
+    border-radius: 8px;
+    position: absolute;
+}
+
+.bar-bottom-left{
+    border-radius: 0px 8px 8px 0px;
+    top: 130px;
+    left: 0;
+    width: 25%;
+}
+
+.bar-bottom-center{
+    top: 106px;
+    left: 97px;
+    rotate: 155deg;
+    width: 28%;
+}
+
+.bar-bottom-right{
+    border-radius: 8px 0px 0px 8px;
+    top: 80px;
+    right: 0px;
+    width: 55%;
+}
+
+@keyframes powerSearch {
+    0%{
+        background-color: rgb(66, 188, 254);
+        box-shadow: 0px 0px 10px 10px rgb(66, 188, 254),
+                    inset -5px -4px 1px rgb(31, 109, 151);
+    }
+
+    100%{
+        background-color: rgb(120, 120, 120);
+        box-shadow: 0px 0px 20px rgb(120, 120, 120),
+                    inset -5px -4px 1px rgb(42, 42, 42);
+    }
 }

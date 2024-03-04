@@ -1,0 +1,47 @@
+.container-pokeInfo{
+    position: absolute;
+    top: 170px;
+    left: 50px;
+    background-color: white;
+    width: 360px;
+    height: 250px;
+    border-radius: 4px;
+    box-shadow: -1px 1px 0px hsl(0, 0%, 100%),
+                -2px 2px 0px hsl(0, 0%, 60%),
+                -3px 3px 0px hsl(0, 0%, 59%),
+                -4px 4px 0px hsl(0, 0%, 58%),
+                -5px 5px 0px hsl(0, 0%, 57%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container-img{
+    width: 95%;
+    height: 80%;
+    background-color: aqua;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-image: url(../../assets/images/fondo-pkm.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.pokeImg{
+    margin-top: 20px;
+}
+
+.button-view-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
