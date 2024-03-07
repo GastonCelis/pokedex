@@ -1,26 +1,30 @@
+.container-all-circuits{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container-circuit{
+    background-color: red;
+    z-index: 45;
+    width: 500px;
+    height: 65px;
+    margin-top: -150px;
+    border-radius: 4px;
+}
+
+.container-circuit-2{
+    background-color: red;
+    z-index: 45;
+    width: 100px;
+    height: 85px;
+    margin-left: 5px;
+}
+
 .circuit-bar{
-    position: absolute;
-    background-color: rgb(78, 0, 0);
-}
-
-.circuit-bar-left{
-    top: 150px;
-    left: 20px;
-    height: 73%;
-    width: 10px;
-}
-
-.circuit-bar-center{
-    top: 403px;
-    left: 220.5px;
-    height: 65%;
-    width: 10px;
-    rotate: 90deg;
-}
-
-.circuit-bar-right{
-    top: 100px;
-    right: 20px;
-    height: 81.3%;
-    width: 10px;
+    width: 500px;
+    //clip-path: polygon(0 94%, 0 100%, 8% 100%, 31% 100%, 42% 54%, 51% 17%, 100% 17%, 100% 11%, 84% 11%, 48% 11%, 28% 94%, 8% 94%);
+    margin-top: -70px;
+    z-index: 55;
+    filter: drop-shadow(0px 2px 2px black);
 }

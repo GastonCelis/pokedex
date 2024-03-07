@@ -3,14 +3,16 @@
 }
 
 .container-pokeHeader{
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 490px;
+    height: 120px;
+    margin-top: -15px;
+    padding: 12px 25px 12px 25px;
 }
 
 .container-circle-on{
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,13 +25,10 @@
 }
 
 .container-circle-action{
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3px;
-    top: 10px;
-    right: 60px;
 }
 
 .circle-on{
@@ -138,35 +137,6 @@
 .circle-reset:hover{
     background-color: rgb(29, 161, 12);
     color: white;
-}
-
-.bar-bottom{
-    width: 35%;
-    height: 20px;
-    background-color: rgb(78, 0, 0);
-    border-radius: 8px;
-    position: absolute;
-}
-
-.bar-bottom-left{
-    border-radius: 0px 8px 8px 0px;
-    top: 130px;
-    left: 0;
-    width: 25%;
-}
-
-.bar-bottom-center{
-    top: 106px;
-    left: 97px;
-    rotate: 155deg;
-    width: 28%;
-}
-
-.bar-bottom-right{
-    border-radius: 8px 0px 0px 8px;
-    top: 80px;
-    right: 0px;
-    width: 55%;
 }
 
 @keyframes powerSearch {

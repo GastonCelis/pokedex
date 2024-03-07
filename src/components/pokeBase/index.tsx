@@ -1,16 +1,21 @@
 import PokeHeader from '@/components/pokeHeader';
 import Circuit from '@/components/circuit'
 import PokeInfo from '@/components/pokeInfo'
+import BackgroundCircuit from '@/components/circuit/backgroundCircuit';
 import './pokeBase.scss'
 
 const PokeBase = () => {
     return (
         <div className='container-pokeBase'>
-            <PokeHeader />
+            <div className='box-circuit'>
+                <PokeHeader />
 
-            <Circuit />
+                <Circuit />
 
-            <PokeInfo />
+                <BackgroundCircuit />
+
+                <PokeInfo />
+            </div>
         </div>
     );
 };

@@ -1,20 +1,15 @@
 .container-pokeInfo{
-    position: absolute;
-    top: 170px;
-    left: 50px;
     background-color: white;
     width: 360px;
-    height: 250px;
+    height: 280px;
     border-radius: 4px;
-    box-shadow: -1px 1px 0px hsl(0, 0%, 100%),
-                -2px 2px 0px hsl(0, 0%, 60%),
-                -3px 3px 0px hsl(0, 0%, 59%),
-                -4px 4px 0px hsl(0, 0%, 58%),
-                -5px 5px 0px hsl(0, 0%, 57%);
+    box-shadow: 0px 5px 10px black;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 5px;
+    margin-top: 30px;
 }
 
 .container-img{
@@ -44,4 +39,94 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.actions-pokeInfo{
+    padding: 10px 0px;
+}
+
+.container-types{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.type{
+    padding-top: 10px;
+    margin-bottom: -5px;
+    font-size: 12px;
+}
+
+.steel{
+    color: lightgray;
+}
+
+.water{
+    color: royalblue;
+}
+
+.bug{
+    color: yellowgreen;
+}
+
+.dragon{
+    color: mediumslateblue;
+}
+
+.electric{
+    color: yellow;
+}
+
+.ghost{
+    color: purple;
+}
+
+.fire{
+    color: crimson;
+}
+
+.fairy{
+    color: rgb(255, 136, 238);
+}
+
+.ice{
+    color: aquamarine;
+}
+
+.fighting{
+    color: firebrick;
+}
+
+.normal{
+    color: lavender;
+}
+
+.grass{
+    color: lime;
+}
+
+.psychic{
+    color: violet;
+}
+
+.rock{
+    color: peru;
+}
+
+.dark{
+    color: slategray;
+}
+
+.ground{
+    color: burlywood;
+}
+
+.poison{
+    color: mediumpurple;
+}
+
+.flying{
+    color: #81B9EF;
 }

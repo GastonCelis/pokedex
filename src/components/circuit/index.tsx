@@ -1,13 +1,10 @@
+import imgBlack from '@/assets/images/circuit.png'
 import './circuit.scss'
 
 const Circuit = () => {
     return (
-        <div>
-            <div className='circuit-bar circuit-bar-left'></div>
-            <div className='circuit-bar circuit-bar-center'></div>
-            <div className='circuit-bar circuit-bar-right'></div>
-        </div>
-    );
+        <img src={imgBlack} alt='Background circuit pokedex' className='circuit-bar' />
+    )
 };
 
 export default Circuit;

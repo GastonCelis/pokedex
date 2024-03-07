@@ -49,10 +49,6 @@ const PokeHeader = () => {
                     </button>
                 </div>
             </div>
-
-            <div className='bar-bottom bar-bottom-left'></div>
-            <div className='bar-bottom bar-bottom-center'></div>
-            <div className='bar-bottom bar-bottom-right'></div>
         </div>
     );
 };
