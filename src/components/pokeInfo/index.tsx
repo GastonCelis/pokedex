@@ -12,7 +12,6 @@ const PokeInfo = () => {
     const [viewBack, setViewBack] = useState(false)
     const [viewShiny, setViewShiny] = useState(false)
     const [viewInfo, setViewInfo] = useState(false)
-    const [animation, setAnimation] = useState(false)
     const spritePokemonFront = viewShiny ? pokemon?.sprites.other.showdown.front_shiny : pokemon?.sprites.other.showdown.front_default
     const spritePokemonBack = viewShiny ? pokemon?.sprites.other.showdown.back_shiny : pokemon?.sprites.other.showdown.back_default
     const typePokemon1 = pokemon?.types[0].type.name.toLowerCase()
@@ -32,12 +31,6 @@ const PokeInfo = () => {
         evolution?.id && dispatch(getPokemonEvolutionInfoAsync(evolution?.chain.evolves_to[0].species.name))
     }, [evolution])
 
-    useEffect(() => {
-        setTimeout(() => {
-            setViewInfo(!viewInfo)
-        }, 980)
-    }, [animation])
-
     const handleViewBack = () => {
         setViewBack(!viewBack)
     }
@@ -47,7 +40,7 @@ const PokeInfo = () => {
     }
 
     const handleViewInfo = () => {
-        setAnimation(!animation)
+        setViewInfo(!viewInfo)
     }
 
     return (
@@ -59,7 +52,7 @@ const PokeInfo = () => {
 
             {
                 viewInfo ?
-                    <div className={`container-info ${animation && 'animation-glass'}`}>
+                    <div className={`container-info`}>
                         <h3>{namePokemon}</h3>
 
                         <div className='box-info'>
@@ -102,7 +95,7 @@ const PokeInfo = () => {
                         <div className='glass'></div>
                     </div>
                     :
-                    <picture className={`container-img ${!animation && 'animation-glass'}`}>
+                    <picture className={`container-img`}>
                         <img src={viewBack ? spritePokemonBack : spritePokemonFront} className='pokeImg' width={100} />
                     </picture>
             }

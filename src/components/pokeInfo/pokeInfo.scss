@@ -25,7 +25,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transform: rotateY(180deg);
 }
 
 .container-info{
@@ -41,7 +40,6 @@
     border-radius: 4px;
     border: 1px solid black;
     box-shadow: inset 0px 0px 10px blue;
-    animation-fill-mode: forwards;
 }
 
 .animation-glass{

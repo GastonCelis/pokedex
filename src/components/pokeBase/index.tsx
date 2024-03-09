@@ -1,6 +1,7 @@
 import PokeHeader from '@/components/pokeHeader';
 import Circuit from '@/components/circuit'
 import PokeInfo from '@/components/pokeInfo'
+import PokeActions from '@/components/pokeActions';
 import BackgroundCircuit from '@/components/circuit/backgroundCircuit';
 import './pokeBase.scss'
 
@@ -15,6 +16,8 @@ const PokeBase = () => {
                 <BackgroundCircuit />
 
                 <PokeInfo />
+
+                <PokeActions />
             </div>
         </div>
     );
