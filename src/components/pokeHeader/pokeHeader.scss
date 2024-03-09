@@ -124,17 +124,17 @@
     box-shadow: inset -5px -4px 1px rgb(143, 1, 1);
 }
 
-.circle-close:hover{
+.circle-close:active{
     background-color: rgb(143, 1, 1);
     color: white;
 }
 
-.circle-search:hover{
+.circle-search:active{
     background-color: rgb(147, 152, 12);
     color: white;
 }
 
-.circle-reset:hover{
+.circle-reset:active{
     background-color: rgb(29, 161, 12);
     color: white;
 }

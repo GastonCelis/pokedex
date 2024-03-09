@@ -9,3 +9,21 @@ export const getPokemonIdorName = (id: string | number) => {
 
     return request
 }
+
+export const getPokemonEvolution = (id: number) => {
+    const request = axios({
+        url: `${URL_BACKEND}/evolution-chain/${id}`,
+        method: 'GET',
+    })
+
+    return request
+}
+
+export const getPokemonEvolutionInfo = (id: number | string) => {
+    const request = axios({
+        url: `${URL_BACKEND}/pokemon/${id}`,
+        method: 'GET',
+    })
+
+    return request
+}

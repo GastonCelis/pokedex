@@ -2,13 +2,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import IPokemonSlice from '@/interfaces/redux/IPokemon'
-import { getPokemonIdorNameAsync } from './pokemonThunk'
+import { getPokemonIdorNameAsync, getPokemonEvolutionAsync, getPokemonEvolutionInfoAsync } from './pokemonThunk'
 
 const initialState: IPokemonSlice = {
     allPokemons: [],
     pokemon: null,
+    evolution: null,
+    evolutionInfo: null,
     dataSearch: {
         pokemonId: 1,
+        evolutionId: 2,
         pokemonName: '',
     },
     pageNumber: 0,
@@ -43,6 +46,35 @@ export const pokemonSlice = createSlice({
                 state.loading = false
             })
             .addCase(getPokemonIdorNameAsync.rejected, (state: IPokemonSlice) => {
+                state.statusMessage = 'rejected'
+                state.loading = false
+            })
+
+            .addCase(getPokemonEvolutionAsync.pending, (state: IPokemonSlice) => {
+                state.statusMessage = 'pending'
+                state.loading = true
+            })
+            .addCase(getPokemonEvolutionAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
+                state.evolution = action.payload
+                state.dataSearch.evolutionId = action.payload.id
+                state.statusMessage = 'fulfilled'
+                state.loading = false
+            })
+            .addCase(getPokemonEvolutionAsync.rejected, (state: IPokemonSlice) => {
+                state.statusMessage = 'rejected'
+                state.loading = false
+            })
+
+            .addCase(getPokemonEvolutionInfoAsync.pending, (state: IPokemonSlice) => {
+                state.statusMessage = 'pending'
+                state.loading = true
+            })
+            .addCase(getPokemonEvolutionInfoAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
+                state.evolutionInfo = action.payload
+                state.statusMessage = 'fulfilled'
+                state.loading = false
+            })
+            .addCase(getPokemonEvolutionInfoAsync.rejected, (state: IPokemonSlice) => {
                 state.statusMessage = 'rejected'
                 state.loading = false
             })

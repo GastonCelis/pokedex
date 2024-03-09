@@ -1,7 +1,7 @@
 .container-pokeInfo{
     background-color: white;
     width: 360px;
-    height: 280px;
+    height: 300px;
     border-radius: 4px;
     box-shadow: 0px 5px 10px black;
     display: flex;
@@ -14,7 +14,7 @@
 
 .container-img{
     width: 95%;
-    height: 80%;
+    height: 260px;
     background-color: aqua;
     margin-top: 10px;
     display: flex;
@@ -25,13 +25,96 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    transform: rotateY(180deg);
+}
+
+.container-info{
+    position: relative;
+    width: 95%;
+    height: 80%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid black;
+    box-shadow: inset 0px 0px 10px blue;
+    animation-fill-mode: forwards;
+}
+
+.animation-glass{
+    animation: glassRevert 1s linear;
+}
+
+.box-info{
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.box-evolution{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.evolution{
+    width: 100%;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.glass{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 195, 255, 0.301);
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px
 }
 
 .pokeImg{
     margin-top: 20px;
 }
 
-.button-view-back{
+.picture-evolution{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-info{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.text-data{
+    font-size: 13px;
+    color: rgba(128, 128, 128, 0.548);
+}
+
+.divider{
+    width: 100%;
+    margin: 12px 0px;
+}
+
+.button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,8 +124,70 @@
     border-radius: 50%;
 }
 
+.button-info-off{
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 3px solid black;
+    background-color: rgb(124, 124, 124);
+    box-shadow: inset -5px -4px 1px rgb(71, 71, 71);
+}
+
+.button-info-off:active{
+    background-color: rgb(71, 71, 71);
+    color: white;
+}
+
+.button-info-on{
+    background-color: rgb(45, 250, 18);
+    box-shadow: inset -5px -4px 1px rgb(29, 161, 12),
+                0px 0px 10px rgb(45, 250, 18);
+}
+
+.button-info-on:active{
+    background-color: rgb(29, 161, 12);
+    color: white;
+}
+
+.button-shiny-on{
+    background-color: rgb(242, 250, 18);
+    box-shadow: inset -5px -4px 1px rgb(147, 152, 12),
+                0px 0px 10px rgb(242, 250, 18);
+}
+
+.button-shiny-on:active{
+    background-color: rgb(147, 152, 12);
+    color: white;
+}
+
+.button-view-back{
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 3px solid black;
+    background-color: rgb(66, 188, 254);
+    box-shadow: inset -5px -4px 1px rgb(31, 109, 151);
+}
+
+.button-view-back:active{
+    background-color: rgb(31, 109, 151);
+    color: white;
+}
+
 .actions-pokeInfo{
+    width: 100%;
     padding: 10px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .container-types{
@@ -129,4 +274,14 @@
 
 .flying{
     color: #81B9EF;
+}
+
+@keyframes glassRevert {
+    from{
+        transform: rotateY(180deg);
+    }
+
+    to{
+        transform: rotateY(0deg);
+    }
 }
