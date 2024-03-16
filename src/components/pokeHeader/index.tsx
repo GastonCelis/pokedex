@@ -2,9 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './pokeHeader.scss'
 import { faPowerOff, faMagnifyingGlass, faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import useRedux from '@/hooks/useRedux';
+import { getPokemonIdorNameAsync } from '@/redux/features/pokemon/pokemonThunk';
+import { setFocusSearch, setPower, setPokemonSearchName } from '@/redux/features/pokemon/pokemonSlice';
 
 const PokeHeader = () => {
-    const { selectors: { selectorPokemon } } = useRedux()
+    const { dispatch, selectors: { selectorPokemon } } = useRedux()
     const { statusMessage } = selectorPokemon
 
     const handleLight = () => {
@@ -23,6 +25,20 @@ const PokeHeader = () => {
         return 'circle-off'
     }
 
+    const handleReset = () => {
+        dispatch(getPokemonIdorNameAsync(1))
+        dispatch(setPokemonSearchName(''))
+        dispatch(setFocusSearch(false))
+    }
+
+    const handleSearch = () => {
+        dispatch(setFocusSearch(true))
+    }
+
+    const handlePower = () => {
+        dispatch(setPower(false))
+    }
+
     return (
         <div className='header'>
             <div className='container-pokeHeader'>
@@ -36,15 +52,15 @@ const PokeHeader = () => {
                 </div>
 
                 <div className='container-circle-action'>
-                    <button className='circle-reset'>
+                    <button className='circle-reset' onClick={handleReset}>
                         <FontAwesomeIcon icon={faRotateRight} />
                     </button>
 
-                    <button className='circle-search'>
+                    <button className='circle-search' onClick={handleSearch}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>
 
-                    <button className='circle-close'>
+                    <button className='circle-close' onClick={handlePower}>
                         <FontAwesomeIcon icon={faPowerOff} />
                     </button>
                 </div>

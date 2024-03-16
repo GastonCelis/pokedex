@@ -13,6 +13,37 @@
     height: 100px;
 }
 
+.container-search{
+    position: relative;
+}
+
+.button-search{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 400ms ease, transform 1s ease, right 1s ease;
+}
+
+.button-search:hover{
+    background-color: rgb(110, 110, 110);
+}
+
+.button-search:active{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.icon-search{
+    font-size: 20px;
+}
+
 .all-action-button{
     background-color: black;
     border-radius: 4px;
@@ -32,18 +63,24 @@
     rotate: 270deg;
     top: 20px;
     left: 0;
+    background-color: black;
     box-shadow: -5px 1px 10px black;
 }
 
-.action-button-left:focus{
-    box-shadow: -5px 1px 10px white;
-    background-color: white;
+.action-button-left:active{
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .action-button-up{
     position: absolute;
     top: 0;
     left: 20px;
+}
+
+.action-button-up:active{
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .action-button-right{
@@ -54,12 +91,22 @@
     box-shadow: 5px 0px 10px black;
 }
 
+.action-button-right:active{
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
 .action-button-down{
     position: absolute;
     rotate: 180deg;
     bottom: 0;
     right: 30px;
     box-shadow: 0px -5px 10px black;
+}
+
+.action-button-down:active{
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .icon-action{
@@ -71,8 +118,31 @@
     height: 40px;
     border-radius: 4px;
     border: none;
+    transition: all 1s ease;
+    cursor: text;
+    outline: none;
 }
 
 .input-actions:focus{
     background-color: rgb(242, 250, 18);
+    transform: scale(1.1);
+    cursor: text;
+    caret-color: black;
+
+    ~ .button-search{
+        transform: scale(1.1);
+        right: -10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .input-actions {
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container-actions-bot{
+        justify-content: space-between;
+    }
 }

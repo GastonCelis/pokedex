@@ -27,3 +27,12 @@ export const getPokemonEvolutionInfo = (id: number | string) => {
 
     return request
 }
+
+export const getPokemonSpecieInfo = (id: string | number) => {
+    const request = axios({
+        url: `https://pokeapi.co/api/v2/pokemon-species/${id}/`,
+        method: 'GET',
+    })
+
+    return request
+} 

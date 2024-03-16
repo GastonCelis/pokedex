@@ -2,21 +2,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import IPokemonSlice from '@/interfaces/redux/IPokemon'
-import { getPokemonIdorNameAsync, getPokemonEvolutionAsync, getPokemonEvolutionInfoAsync } from './pokemonThunk'
+import { getPokemonIdorNameAsync, getPokemonEvolutionAsync, getPokemonEvolutionInfoAsync, getPokemonSpecieInfoAsync } from './pokemonThunk'
 
 const initialState: IPokemonSlice = {
-    allPokemons: [],
     pokemon: null,
     evolution: null,
     evolutionInfo: null,
+    specieInfo: null,
     dataSearch: {
         pokemonId: 1,
-        evolutionId: 2,
+        evolutionId: 1,
         pokemonName: '',
     },
-    pageNumber: 0,
-    totalPages: 0,
+    focusSearch: false,
+    power: false,
     statusMessage: '',
+    statusMessageEvolution: '',
     loading: false
 }
 
@@ -30,6 +31,12 @@ export const pokemonSlice = createSlice({
         },
         setPokemonSearchName: (state: IPokemonSlice, action: PayloadAction<string>) => {
             state.dataSearch.pokemonName = action.payload
+        },
+        setFocusSearch: (state: IPokemonSlice, action: PayloadAction<boolean>) => {
+            state.focusSearch = action.payload
+        },
+        setPower: (state: IPokemonSlice, action: PayloadAction<boolean>) => {
+            state.power = action.payload
         }
     },
 
@@ -51,30 +58,44 @@ export const pokemonSlice = createSlice({
             })
 
             .addCase(getPokemonEvolutionAsync.pending, (state: IPokemonSlice) => {
-                state.statusMessage = 'pending'
+                state.statusMessageEvolution = 'pending'
                 state.loading = true
             })
             .addCase(getPokemonEvolutionAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
                 state.evolution = action.payload
-                state.dataSearch.evolutionId = action.payload.id
-                state.statusMessage = 'fulfilled'
+                state.statusMessageEvolution = 'fulfilled'
                 state.loading = false
             })
             .addCase(getPokemonEvolutionAsync.rejected, (state: IPokemonSlice) => {
-                state.statusMessage = 'rejected'
+                state.statusMessageEvolution = 'rejected'
                 state.loading = false
             })
 
             .addCase(getPokemonEvolutionInfoAsync.pending, (state: IPokemonSlice) => {
-                state.statusMessage = 'pending'
+                state.statusMessageEvolution = 'pending'
                 state.loading = true
             })
             .addCase(getPokemonEvolutionInfoAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
                 state.evolutionInfo = action.payload
-                state.statusMessage = 'fulfilled'
+                state.statusMessageEvolution = 'fulfilled'
                 state.loading = false
             })
             .addCase(getPokemonEvolutionInfoAsync.rejected, (state: IPokemonSlice) => {
+                state.statusMessageEvolution = 'rejected'
+                state.loading = false
+            })
+
+            .addCase(getPokemonSpecieInfoAsync.pending, (state: IPokemonSlice) => {
+                state.statusMessage = 'pending'
+                state.loading = true
+            })
+            .addCase(getPokemonSpecieInfoAsync.fulfilled, (state: IPokemonSlice, action: PayloadAction<any>) => {
+                const idEvolution = action.payload.evolution_chain.url.split('/')[action.payload.evolution_chain.url.split('/').length - 2]
+                state.dataSearch.evolutionId = idEvolution
+                state.statusMessage = 'fulfilled'
+                state.loading = false
+            })
+            .addCase(getPokemonSpecieInfoAsync.rejected, (state: IPokemonSlice) => {
                 state.statusMessage = 'rejected'
                 state.loading = false
             })
@@ -82,8 +103,11 @@ export const pokemonSlice = createSlice({
 })
 
 export const {
+    refreshStatePokemon,
+    setPokemonSearchName,
     setPokemonSearchId,
-    refreshStatePokemon
+    setFocusSearch,
+    setPower
 } = pokemonSlice.actions
 
 export default pokemonSlice.reducer

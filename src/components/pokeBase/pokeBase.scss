@@ -1,4 +1,5 @@
 .container-pokeBase{
+    position: relative;
     background-color: red;
     width: 500px;
     height: 660px;
@@ -7,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .box-circuit{
@@ -18,4 +20,115 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+}
+
+.cover-pokedex-left, .cover-pokedex-right{
+    position: absolute;
+    background-color: red;
+    width: 50%;
+    height: calc(100% + 5px);
+    z-index: 999;
+    border: 10px solid black;
+    margin-top: -4px;
+}
+
+.cover-pokedex-left{
+    border-radius: 4px 0px 0px 4px;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cover-pokedex-left-open{
+    transform: translateX(-100%);
+}
+
+.cover-pokedex-right{
+    border-radius: 0px 4px 4px 0px;
+    top: 0;
+    right: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cover-pokedex-right-open{
+    transform: translateX(100%);
+}
+
+.circle-start{
+    position: absolute;
+    background-color: rgb(0, 195, 255);
+    box-shadow: inset -25px -20px 10px rgb(2, 103, 134);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    z-index: 9999;
+    border: 10px solid black;
+    transition: transform 0.5s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-start:hover{
+    background-color: rgb(0, 195, 255);
+    box-shadow: inset -25px -20px 10px rgb(0, 195, 255);
+    animation: lightOn 0.5s linear infinite alternate;
+    .circle-start-in{
+        animation: circleLoad 5s linear infinite;
+    }
+    .text-circle-start{
+        animation: textStart 0.5s linear infinite alternate;
+    }
+}
+
+.circle-start-in{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px white;
+    border-style: dotted;
+}
+
+.text-circle-start{
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.circle-start-open{
+    transform: perspective(800px) rotateY(-90deg);
+}
+
+@keyframes circleLoad {
+    100%{
+        rotate: 360deg;
+    }
+}
+
+@keyframes textStart {
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1.1);
+    }
+}
+
+@keyframes lightOn {
+    0%{
+        box-shadow: 0px 0px 5px 0px rgb(0, 195, 255);
+    }
+
+    100%{
+        box-shadow: 0px 0px 30px 10px rgb(124, 202, 226);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container-pokeBase {
+        width: 98%;
+    }
 }

@@ -6,12 +6,10 @@ import { getPokemonIdorNameAsync } from "./redux/features/pokemon/pokemonThunk"
 import '@/app.scss'
 
 function App() {
-  const { dispatch, selectors: { selectorPokemon } } = useRedux()
-  const { dataSearch } = selectorPokemon
-  const { pokemonId } = dataSearch
+  const { dispatch } = useRedux()
 
   useEffect(() => {
-    dispatch(getPokemonIdorNameAsync(pokemonId))
+    dispatch(getPokemonIdorNameAsync(1))
   }, [])
 
   return (
